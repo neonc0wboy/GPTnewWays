@@ -1,7 +1,9 @@
 #read -p 'text: ' text
-text="${1}"
-echo $text
-string='"Переведи на Русский следующее: '$(echo $text)'"'
-echo $string
+text=${1}
+string=$( echo "Переведи на Русский следующее:")
+prom="$(echo $string, $text)"
+#string=$(echo "'"Переведи на Русский следующее: "$prom""'")
+#string="Переведи на Русский следующее: '$(echo $text)'"
 #.shortcuts/api1.sh $(echo '"Переведи на Русский следующее: $(echo $text)"')
-.shortcuts/api1.sh $string
+prompt="$(echo '"', $string $prom, '"')"
+./api1.sh "$prompt"
